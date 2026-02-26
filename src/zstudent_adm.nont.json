@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZSTUDENT_ADM",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZSTUDENT_ADM",
+  "sapObjectType": "ZSTUDENT_ADM",
+  "rootNode": true
+}

@@ -1,0 +1,50 @@
+managed implementation in class ZBP_R_STUDENT_ADM unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_STUDENT_ADM alias ZrStudentAdm
+persistent table ZSTUDENT_ADM
+extensible
+draft table ZSTUDENT_ADM_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   AdmissionID,
+   CreatedBy,
+   CreatedAt,
+   LastChangedBy,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( numbering : managed )
+   AdmissionID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZSTUDENT_ADM corresponding extensible
+  {
+    AdmissionID = ADMISSION_ID;
+    FirstName = FIRST_NAME;
+    LastName = LAST_NAME;
+    DateOfBirth = DATE_OF_BIRTH;
+    CourseID = COURSE_ID;
+    Status = STATUS;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+}
